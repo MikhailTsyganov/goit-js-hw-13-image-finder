@@ -29,13 +29,13 @@ function onSearch(e) {
 
 function onLoadMore() {
     apiService.fetchArticles().then(appendArticlesMarkup);
-    
+    scroll()
 }
 
 
 function appendArticlesMarkup(hits) {
     refs.articlesContainer.insertAdjacentHTML('beforeend', articlesTpl(hits));
-    scroll()
+    
 }
 
 function clearArticlesContainer() {
@@ -43,8 +43,11 @@ function clearArticlesContainer() {
 }
 
 function scroll() {
-    refs.articlesContainer.scrollIntoView({
+    setTimeout(() => {
+        refs.loadMoreBtn.scrollIntoView({
   behavior: 'smooth',
   block: 'end',
 });
+    }, 500);
+    
 }
