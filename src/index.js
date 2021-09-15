@@ -48,6 +48,6 @@ function scroll() {
   behavior: 'smooth',
   block: 'end',
 });
-    }, 500);
+    }, 1000);
     
 }
